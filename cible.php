@@ -30,8 +30,8 @@
                 $password = "";
             }
             ?>
-            <form class="form" action="cible.php" method="post">
-                <input class="input"  type="text" id="firstname" name="firstname" value="<?= $firstname ?>" required>
+            <form class="form" id="confirmationForm" action="index.php" method="post">
+                <input class="input" type="text" id="firstname" name="firstname" value="<?= $firstname ?>" required>
                 <input class="input" type="text" id="lastname" name="lastname" value="<?= $lastname ?>" required>
                 <input class="input" type="email" id="email" name="email" value="<?= $email ?>" required>
                 <input class="input" type="tel" id="phone" name="phone" value="<?= $phone ?>" required>
@@ -41,12 +41,11 @@
                         <input type="checkbox" id="showPassword"> Show Password
                     </label>
                 </div>
-                <input class="login-button" type="submit" value="Confirm">
+                <input class="login-button" type="submit" value="Confirm" onclick="confirmRegistration()">
             </form>
         </div>
     </center>
     <script>
-        // JavaScript to toggle password visibility
         const passwordField = document.getElementById('password');
         const showPasswordCheckbox = document.getElementById('showPassword');
 
@@ -56,6 +55,12 @@
             } else {
                 passwordField.type = 'password';
             }
+        });
+
+        document.getElementById("confirmationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Registration successful!"); 
+            window.location.href = "index.php";
         });
     </script>
 </body>
